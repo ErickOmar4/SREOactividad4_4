@@ -1,0 +1,37 @@
+meta {
+  name: 04 Libro - Crear (POST)
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/api/libros
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "titulo": "Cien anios de soledad",
+    "isbn": "{{isbn}}",
+    "anioPublicacion": 1967,
+    "autorId": {{autorId}}
+  }
+}
+
+script:pre-request {
+  bru.setVar("isbn", "978" + String(Date.now()).slice(-10));
+}
+
+script:post-response {
+  if (res.status === 201) { bru.setVar("libroId", res.body.id); }
+}
+
+tests {
+  test("201 Created", function () { expect(res.status).to.equal(201); });
+  test("incluye nombre del autor", function () { expect(res.body.autorNombre).to.be.a("string"); });
+}

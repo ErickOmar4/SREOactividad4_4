@@ -1,0 +1,20 @@
+meta {
+  name: 05 Libros - Listar paginado (GET)
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/api/libros?page=0&size=5&sortBy=titulo&dir=asc
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+tests {
+  test("200 OK", function () { expect(res.status).to.equal(200); });
+  test("trae paginacion", function () { expect(res.body).to.have.property("totalElementos"); });
+}

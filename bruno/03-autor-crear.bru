@@ -1,0 +1,30 @@
+meta {
+  name: 03 Autor - Crear
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/api/autores
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "nombre": "Gabriel Garcia Marquez",
+    "nacionalidad": "Colombiana"
+  }
+}
+
+script:post-response {
+  if (res.status === 201) { bru.setVar("autorId", res.body.id); }
+}
+
+tests {
+  test("201 Created", function () { expect(res.status).to.equal(201); });
+}

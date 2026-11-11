@@ -1,0 +1,19 @@
+meta {
+  name: 06 Libro - Ver por id (GET)
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/api/libros/{{libroId}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+tests {
+  test("200 OK", function () { expect(res.status).to.equal(200); });
+}

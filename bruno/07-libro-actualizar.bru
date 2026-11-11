@@ -1,0 +1,29 @@
+meta {
+  name: 07 Libro - Actualizar (PUT)
+  type: http
+  seq: 7
+}
+
+put {
+  url: {{baseUrl}}/api/libros/{{libroId}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "titulo": "Cien anios de soledad (Edicion revisada)",
+    "isbn": "{{isbn}}",
+    "anioPublicacion": 1967,
+    "autorId": {{autorId}}
+  }
+}
+
+tests {
+  test("200 OK", function () { expect(res.status).to.equal(200); });
+  test("titulo actualizado", function () { expect(res.body.titulo).to.include("revisada"); });
+}

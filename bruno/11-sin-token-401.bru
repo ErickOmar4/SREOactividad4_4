@@ -1,0 +1,15 @@
+meta {
+  name: 11 Endpoint protegido SIN token (401)
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{baseUrl}}/api/libros
+  body: none
+  auth: none
+}
+
+tests {
+  test("401 Unauthorized", function () { expect(res.status).to.equal(401); });
+}

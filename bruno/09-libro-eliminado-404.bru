@@ -1,0 +1,19 @@
+meta {
+  name: 09 Libro - Ver eliminado (404)
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{baseUrl}}/api/libros/{{libroId}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+tests {
+  test("404 Not Found", function () { expect(res.status).to.equal(404); });
+}

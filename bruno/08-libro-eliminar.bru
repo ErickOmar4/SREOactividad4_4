@@ -1,0 +1,19 @@
+meta {
+  name: 08 Libro - Eliminar (DELETE)
+  type: http
+  seq: 8
+}
+
+delete {
+  url: {{baseUrl}}/api/libros/{{libroId}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+tests {
+  test("204 No Content", function () { expect(res.status).to.equal(204); });
+}

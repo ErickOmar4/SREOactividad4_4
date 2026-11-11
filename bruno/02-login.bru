@@ -1,0 +1,27 @@
+meta {
+  name: 02 Login
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/api/auth/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email": "{{email}}",
+    "password": "Password123"
+  }
+}
+
+script:post-response {
+  if (res.status === 200) { bru.setVar("token", res.body.token); }
+}
+
+tests {
+  test("200 OK", function () { expect(res.status).to.equal(200); });
+  test("devuelve token JWT", function () { expect(res.body.token.split(".").length).to.equal(3); });
+}

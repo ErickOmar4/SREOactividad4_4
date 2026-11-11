@@ -1,0 +1,28 @@
+meta {
+  name: 10 Libro - Validacion fallida (400)
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{baseUrl}}/api/libros
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "titulo": "",
+    "isbn": "123",
+    "anioPublicacion": 50
+  }
+}
+
+tests {
+  test("400 Bad Request", function () { expect(res.status).to.equal(400); });
+  test("lista errores por campo", function () { expect(res.body.errores).to.be.an("object"); });
+}
