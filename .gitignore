@@ -1,0 +1,33 @@
+# Maven / compilados
+target/
+!.mvn/wrapper/maven-wrapper.jar
+*.class
+*.jar
+*.war
+*.log
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+.factorypath
+*.swp
+nbproject/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Secretos y configuracion local (NUNCA subir credenciales reales)
+.env
+*.env
+application-local.properties
+application-vps.properties
+secrets/
+
+# Bruno: archivos locales que no se versionan
+bruno/node_modules/
