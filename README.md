@@ -1,5 +1,6 @@
 # act4_t4 · API REST con Spring Boot, Spring Security y JWT
 
+![alt text](img/api.png)
 API REST pura (sin vistas) para gestionar **libros y autores**, protegida con **autenticación real mediante Spring Security + JWT**, con DTOs, validación de entrada, paginación, MySQL y una colección de pruebas en **Bruno**.
 
 > Actividad 4 · Ingeniería en Sistemas Computacionales · Tecnológico Nacional de México
@@ -279,6 +280,22 @@ POST /api/auth/register
 
 La colección `bruno/` contiene: registro, login, crear autor, **4 operaciones CRUD** (POST, GET lista paginada, GET por id, PUT, DELETE), un 404 tras eliminar, una validación fallida (400), una petición **sin token (401)** y un login incorrecto (401). Los scripts guardan automáticamente el `token`, `autorId` y `libroId`. Entornos: `local` y `vps`. Guía: [`docs/BRUNO.md`](docs/BRUNO.md).
 
+![alt text](img/p1.png)
+
+![alt text](img/p_login.png)
+
+![alt text](img/p3_crear_Autor.png)
+
+![alt text](img/p4_crear_libro.png)
+
+![alt text](img/p5_listar_paginado.png)
+
+![alt text](img/p6_ver_libros.png)
+
+![alt text](img/p7_actualizar_libro.png)
+
+pruebas 
+![alt text](img/i8_pruebas.png)
 ---
 
 ## 8. Despliegue en el VPS
@@ -320,4 +337,3 @@ Guarda las imágenes en `docs/capturas/` y enlázalas aquí:
 ## 11. Documentación adicional
 - [`docs/SEGURIDAD_JWT.md`](docs/SEGURIDAD_JWT.md) — cómo funciona la seguridad por dentro.
 - [`docs/BRUNO.md`](docs/BRUNO.md) — uso de la colección.
-- [`docs/DESPLIEGUE_VPS.md`](docs/DESPLIEGUE_VPS.md) — despliegue paso a paso.
